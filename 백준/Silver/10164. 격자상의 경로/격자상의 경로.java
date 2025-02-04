@@ -22,13 +22,24 @@ public class Main {
 	    if(K==0) {
 	    	answer = getWay(N, M);
 	    } else {
-	    	int n = K/M + 1;
-	    	int m = K%M;
+	    	int n = (K-1) / M + 1;
+	    	int m = (K-1) % M + 1;
 
 	    	answer = getWay(n, m) * getWay(N-n+1, M-m+1);
 	    }
 	    
 	    System.out.println(answer);
+    }
+    
+    // n! 계산
+    private static long factorial(int n) {
+    	if(n == 0) return 1;
+    	
+    	long answer = 1;
+    	for(int i = n; i>0; i--) {
+    		answer *= i;
+    	}
+    	return answer;
     }
     
     // 행이 N, 열이 M인 이차배열의 첫 칸에서 마지막칸으로 갈 수 있는 경우의 수
